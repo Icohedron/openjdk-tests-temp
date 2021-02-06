@@ -24,11 +24,11 @@ def main():
     action = subparsers.add_parser('action', add_help=False)
     # TODO: Fetch the valid choices for each parameter from somewhere instead of hard-coding them?
     action.add_argument('--sdk_resource', default='nightly', choices=['nightly', 'releases'], nargs='+')
-    action.add_argument('--build_list', required=True, choices=['openjdk', 'functional', 'system', 'perf', 'external'], nargs='+')
-    action.add_argument('--target', required=True, nargs='+')
-    action.add_argument('--platform', required=True, nargs='+')
-    action.add_argument('--jdk_version', required=True, nargs='+')
-    action.add_argument('--jdk_impl', required=True, nargs='+')
+    action.add_argument('--build_list', default='openjdk', choices=['openjdk', 'functional', 'system', 'perf', 'external'], nargs='+')
+    action.add_argument('--target', default='jdk_math', nargs='+')
+    action.add_argument('--platform', default='x86-64_linux', nargs='+')
+    action.add_argument('--jdk_version', default='8', nargs='+')
+    action.add_argument('--jdk_impl', default='openj9', nargs='+')
     args = parser.parse_args()
 
     output = {
