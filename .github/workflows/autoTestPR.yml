@@ -32,7 +32,7 @@ jobs:
           comment_body: ${{ github.event.comment.body }}
         run: |
           git config --list
-          python TKG/scripts/testBot/disable.py -m "comment_body" -c "${{ github.event.comment.html_url }}" -d "$GITHUB_WORKSPACE/tests"
+          python TKG/scripts/testBot/disable.py -m "$comment_body" -c "${{ github.event.comment.html_url }}" -d "$GITHUB_WORKSPACE/tests"
       - name: test cannot be found
         if: failure()
         run: |
